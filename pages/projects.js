@@ -6,13 +6,13 @@ const projects = [
   {
     slug: "stellarator-optimization",
     title: "Stellarator Optimization",
-    description: "Optimization framework for magnetic confinement devices using shape derivatives.",
+    description: "Optimization of different properties of interest for stellarators using STELLOPT, and exploring the concept of average triangularity.",
     image: "/images/m0.png"
   },
   {
     slug: "deep-onets",
     title: "DeepONets",
-    description: "Exploring Deep Operator Networks to solve partial differential equations efficiently.",
+    description: "This project explores the use of Separable Physics-Informed Deep Operator Networks (Sep-PI-DeepONets) for solving high-dimensional partial differential equations (PDEs) more efficiently.",
     image: "/images/heatdiff_BCs.png"
   }
 ]

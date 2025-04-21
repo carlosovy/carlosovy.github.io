@@ -10,7 +10,6 @@ export default function Navbar() {
         <div className="flex gap-5">
           <Link href="/about" className="hover:text-[#ff6ac1] transition">About</Link>
           <Link href="/projects" className="hover:text-[#ff6ac1] transition">Projects</Link>
-          <Link href="/research" className="hover:text-[#ff6ac1] transition">Research</Link>
           <Link href="/skills" className="hover:text-[#ff6ac1] transition">Skills</Link>
           <Link href="/cv" className="hover:text-[#ff6ac1] transition">CV</Link>
         </div>
