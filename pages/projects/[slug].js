@@ -1,6 +1,9 @@
 import { useRouter } from "next/router"
 import Layout from "../../components/Layout"
 import Image from "next/image"
+import katex from "katex";
+import Latex from "../../components/Latex"
+
 
 const projectDetails = {
   "stellarator-optimization": {
@@ -9,7 +12,7 @@ const projectDetails = {
   content: (
     <>
       <p className="mb-4">
-        This project, developed as part of my bachelor thesis, under the tutelage of Luis Raúl Sánchez Fernández, focuses on the optimization of a stellarator configuration known as the <span className="text-[#7f5af0] font-medium">Quasi-Poloidal Stellarator (QPS)</span>. Originally designed at Oak Ridge National Laboratory, QPS was a stellarator configuration to exhibit <span className="text-[#7f5af0] font-medium">quasi-poloidal symmetry</span> — a magnetic symmetry thought to reduce turbulence and improve plasma confinement by reducing degrees of freedom and exciting poloidal shear flows.
+        This project, developed as part of my bachelor thesis, under the tutelage of Luis Raúl Sánchez Fernández, focuses on the optimization of a stellarator configuration known as the <span className="text-[#7f5af0] font-medium">Quasi-Poloidal Stellarator (QPS)</span>. Originally designed at Oak Ridge National Laboratory, QPS was a stellarator configuration to exhibit <span className="text-[#7f5af0] font-medium">quasi-poloidal symmetry</span>,a magnetic symmetry thought to reduce turbulence and improve plasma confinement by reducing degrees of freedom and exciting poloidal shear flows.
       </p>
 
       <p className="mb-4">
@@ -21,7 +24,7 @@ const projectDetails = {
       </p>
 
       <p className="mb-6">
-        As part of the results, several interesting configurations were discovered — including candidates with <span className="text-[#2cb67d] font-medium">average triangularity</span> — that may exhibit desirable physical characteristics. These configurations offer potential pathways for future studies in reduced turbulence and improved confinement in stellarators.
+        As part of the results, several interesting configurations were discovered — including candidates with <span className="text-[#2cb67d] font-medium">average triangularity</span>, that may exhibit desirable physical characteristics. These configurations offer potential pathways for future studies in reduced turbulence and improved confinement in stellarators.
       </p>
       {/* Image 3: Magnetic Field 3D */}
     <div>
@@ -33,7 +36,7 @@ const projectDetails = {
         className="rounded-xl shadow-lg mx-auto"
       />
       <p className="text-sm text-gray-400 text-center mt-2">
-        <em>3D plot of magnetic field of a configuration using S.Lazerson&apos;ms MatlabVMEC</em>
+        <em>3D plot of magnetic field of a configuration using S.Lazerson&apos;s MatlabVMEC</em>
       </p>
     </div>
 
@@ -94,7 +97,7 @@ const projectDetails = {
         <div>
           <h4 className="text-lg font-semibold text-[#ff6ac1] mb-1">COBRAVMEC</h4>
           <p>
-            This module assesses <span className="text-[#7f5af0]">ballooning instability</span> — a form of MHD instability that sets limits on achievable pressure gradients. Configurations were optimized to have negative ballooning mode growth rates to enhance core plasma stability.
+            This module assesses <span className="text-[#7f5af0]">ballooning instability</span>,a form of MHD instability that sets limits on achievable pressure gradients. Configurations were optimized to have negative ballooning mode growth rates to enhance core plasma stability.
           </p>
         </div>
       </div>
@@ -122,7 +125,7 @@ const projectDetails = {
         </p>
       {/* Outro */}
       <p className="mt-10 text-[#2cb67d] font-medium">
-        This project highlights the different aspects of stellarator optimization, plasma physics, and code development to explore the limits of stellarator performance by using STELLOPT.
+        This project highlights the different aspects of stellarator optimization, plasma physics, and code development of stellarator optimization by using STELLOPT, while maintaining enough simplicity to perform it on a conventional laptop.
       </p>
     </>
   )
@@ -140,19 +143,46 @@ const projectDetails = {
       </p>
 
       <p className="mb-6">
-        DeepONets is a type of architecture designed to learn function operators, approximating the mapping between initial or boundary conditions to solutions of PDEs. The architecture is composed of two networks: a <span className="text-[#7f5af0] font-medium">branch network</span>, which encodes the input function (e.g., an initial or boundary condition), and a <span className="text-[#7f5af0] font-medium">trunk network</span>, which encodes the coordinates at which we want to evaluate the output function. Approximating an operator is more useful than approximating a single function, as it allows us to evaluate the function at any point in the domain, not restricted to a grid of points or set of conditions.
+        DeepONets are a type of architecture designed to learn function operators, approximating the mapping between initial or boundary conditions to solutions of PDEs. The architecture is composed of two networks: a <span className="text-[#7f5af0] font-medium">branch network</span>, which encodes the input function (e.g., an initial or boundary condition), and a <span className="text-[#7f5af0] font-medium">trunk network</span>, which encodes the coordinates at which we want to evaluate the output function. Approximating an operator is more useful than approximating a single function, as it allows us to evaluate the function at any point in the domain, not restricted to a grid of points or set of conditions.
       </p>
 
       <p className="mb-6">
-        In <span className="text-[#7f5af0] font-medium">Separable DeepONets</span>, each coordinate dimension (e.g., <code className="text-[#ff6ac1] font-mono">x</code>, <code className="text-[#ff6ac1] font-mono">t</code>) is processed by its own dedicated sub-network within the trunk. This reduces the computational complexity and allows more efficient training, especially in high-dimensional problems. The outputs of the individual sub-networks are then combined using an operation known as the <span className="text-[#2cb67d] font-medium">eigensum</span> — an efficient way of combining component-wise representations to form the final prediction.
+        In <span className="text-[#7f5af0] font-medium">Separable DeepONets</span>, each coordinate dimension (e.g., <code className="text-[#ff6ac1] font-mono">x</code>, <code className="text-[#ff6ac1] font-mono">t</code>) is processed by its own dedicated sub-network within the trunk. This reduces the forward passes from{" "}
+      <Latex math="\mathcal{O}(N n^d)" inline /> to <Latex math="\mathcal{O}(nd)" inline />, where{" "}
+      <Latex math="N" inline /> is the number of input functions and <Latex math="d" inline /> is the number of spatial dimensions. It also uses Forward-Mode Auto Differentiation to compute the gradients of the PDE. In the separable architecture, the Jacobian matrix size is <Latex math="nd \times k n^d" inline />, and forward-mode AD requires only{" "}
+      <Latex math="\mathcal{O}(nd)" inline /> evaluations, compared to{" "}
+      <Latex math="\mathcal{O}(k n^d)" inline /> with reverse-mode AD. The outputs of the individual sub-networks are then combined using an operation known as the <span className="text-[#2cb67d] font-medium">eigensum</span>. This method reduces the computational cost of forward passes through the trunk network from being proportional to <Latex math="\mathcal{O}(k n^d)" inline /> to <Latex math="\mathcal{O}(n d)" inline />.
       </p>
+
+      <div className="my-10 text-center">
+        <img
+          src="/images/deeponet.png"
+          alt="Diagram of Separable DeepONet architecture"
+          className="rounded-xl shadow-lg mx-auto max-w-xl"
+        />
+        <p className="text-sm text-gray-400 mt-2">
+          <em>
+            Architecture of Separable DeepONets.
+            Source: {" "}
+            <a
+              href="https://doi.org/10.1016/j.cma.2024.117586"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#2cb67d] underline hover:text-[#ff6ac1] transition"
+            >
+              Mandl et al., 2025
+            </a>
+          </em>
+        </p>
+      </div>
+
 
       <p className="mb-6">
         To further enhance training efficiency, this framework is extended into a <span className="text-[#ff6ac1] font-medium">Physics-Informed DeepONet</span> (PI-DeepONet). Instead of relying solely on data, the network is trained using a loss function that includes the <span className="text-[#2cb67d]">residual of the PDE</span>, the <span className="text-[#2cb67d]">initial condition</span>, and the <span className="text-[#2cb67d]">boundary condition</span>. This incorporation of physical constraints directly into the loss enables the model to generalize better and avoids the limitations from the data source, such as noise or numerical errors, and encourages physically meaningful outputs.
       </p>
 
       <p className="mb-6">
-        While the separable approach has primarily been applied to the trunk network, my contribution focused on trying to apply this concept to the <span className="text-[#7f5af0] font-medium">branch network</span> as well — enabling independent learning of function inputs such as different boundary conditions.
+        While the separable approach has primarily been applied to the trunk network, my contribution focused on trying to apply this concept to the <span className="text-[#7f5af0] font-medium">branch network</span> as well, enabling independent learning of branch inputs such as different boundary conditions.
       </p>
 
       {/* Tasks and Methodology */}
@@ -177,11 +207,11 @@ const projectDetails = {
       </h3>
 
       <p className="mb-6">
-        Through this work, I gained experience with advanced neural operator architectures and learned to use <span className="text-[#2cb67d] font-medium">JAX</span>, a high-performance machine learning framework. I successfully adapted the DeepONet code for 1D Heat Equation, the data generation code for different end temperatures, and began extending the <span className="text-[#7f5af0] font-medium">separable concept to the branch network</span> — an ongoing avenue for future work in this area.
+        Through this work, I gained experience with advanced neural operator architectures and learned to use <span className="text-[#2cb67d] font-medium">JAX</span>, a high-performance machine learning framework. I successfully adapted the DeepONet code for 1D Heat Equation, the data generation code for different end temperatures, and began extending the <span className="text-[#7f5af0] font-medium">separable concept to the branch network</span>, an ongoing avenue for future work in this area.
       </p>
 
       <p className="text-[#2cb67d] font-medium">
-        This project gave me hands-on experience in bridging machine learning and physics-based modeling, and taught me how machine learning research codes are developed and tested, and the thought process behind research work.
+        This project gave me hands-on experience in bridging machine learning and physics-based modeling, and taught me how machine learning research codes are developed and tested, and the thought process behind typical research work.
       </p>
     </>
   )
