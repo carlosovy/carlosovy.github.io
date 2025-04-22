@@ -33,7 +33,7 @@ const projectDetails = {
         className="rounded-xl shadow-lg mx-auto"
       />
       <p className="text-sm text-gray-400 text-center mt-2">
-        <em>3D plot of magnetic field of a configuration using S.Lazerson's MatlabVMEC</em>
+        <em>3D plot of magnetic field of a configuration using S.Lazerson&apos;ms MatlabVMEC</em>
       </p>
     </div>
 

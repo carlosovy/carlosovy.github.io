@@ -41,7 +41,7 @@ export default function About() {
 
           {/* Call to action */}
           <p className="text-[#7f5af0] font-medium">
-            Feel free to check out my projects or reach out — I’m always up for a good research conversation or collaborative opportunity.
+            Feel free to check out my projects or reach out — I am always up for a good research conversation or collaborative opportunity.
           </p>
           <div className="flex justify-center gap-6 text-[#7f5af0]">
             <a
