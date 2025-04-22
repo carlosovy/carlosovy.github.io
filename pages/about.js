@@ -21,17 +21,17 @@ export default function About() {
 
           {/* Introduction */}
           <p>
-            I’m Carlos, a FUSION-EP master student interested in Nuclear Fusion, Plasma Physics, Optimization and Machine Learning.
+            I&apos;m m Carlos, a FUSION-EP master student interested in Nuclear Fusion, Plasma Physics, Optimization and Machine Learning.
           </p>
 
           {/* Academic Background */}
           <p>
-            I hold a Bachelor's degree in Physics Engineering from UC3M. My academic path has centered around the study of Plasma Physics, Fusion Engineering, and Numerical Methods while also exploring the applications of Machine Learning.
+            I hold a Bachelor&apos;m s degree in Physics Engineering from UC3M. My academic path has centered around the study of Plasma Physics, Fusion Engineering, and Numerical Methods while also exploring the applications of Machine Learning.
           </p>
 
           {/* Research Focus */}
           <p>
-            I’m particularly interested in stellarator optimization, that is obtaining an optimum shape of the stellarator equilibrium that optimizes several quantities of interest, such as stability, fusion performance, transport and cost. I am also interested in leveraging Machine Learning techniques to accelerate resolution of High-Dimensional PDEs, or as surrogate models to be used as optimization proxies of quantities expensive to compute (for instance turbulent heat flux).
+            I&apos;m m particularly interested in stellarator optimization, that is obtaining an optimum shape of the stellarator equilibrium that optimizes several quantities of interest, such as stability, fusion performance, transport and cost. I am also interested in leveraging Machine Learning techniques to accelerate resolution of High-Dimensional PDEs, or as surrogate models to be used as optimization proxies of quantities expensive to compute (for instance turbulent heat flux).
           </p>
 
           {/* Beyond Research */}
